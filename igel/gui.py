@@ -3,6 +3,10 @@ import platform
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 
+def close_window():
+    root.destroy()
+    pass
+
 def entry_str(name,col,row,set_def=None):
     tk.Label(root, text=name).grid(column=col,row=row)
     var = tk.StringVar()
@@ -192,6 +196,8 @@ def main():
 
     target = entry_str('Target (Seperate by comma)',6,5)
 
+    tk.Button(root, text='Save and Close',command=close_window).grid(column=7,row=6)
+
     root.mainloop()
 
     opvars_dict = {}
@@ -253,7 +259,9 @@ def main():
         'target': target.get().split(',')
     }
 
-    return([filename,yaml_dict])
+    result = [filename,yaml_dict]
+    print(result)
+    return(result)
 
 
 if __name__ == '__main__':
