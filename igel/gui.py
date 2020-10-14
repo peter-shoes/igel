@@ -198,6 +198,15 @@ def main():
 
     tk.Button(root, text='Save and Close',command=close_window).grid(column=7,row=6)
 
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    total_rows = 25
+    total_cols = 7
+
+    for i in range(total_rows):
+        root.grid_rowconfigure(i, weight=1)
+    for i in range(total_cols):
+        root.grid_columnconfigure(i, weight=1)
+
     root.mainloop()
 
     opvars_dict = {}
