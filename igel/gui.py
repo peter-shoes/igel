@@ -99,18 +99,18 @@ def main():
     filetype = filename.split('/')[-1].split('.')[-1]
     tk.Label(root, text='File Type: %s'%filetype).grid(column=0,row=1)
 
-    read_data_options = ['sep', 'delimiter', 'header', 'names', 'index_col', 'usecols', 'squeeze', 'prefix', 'mangle_dupe_cols', 'dtype', 'engine', 'converters', 'true_values', 'false_values', 'skipinitialspace', 'skiprows', 'skipfooter', 'nrows', 'na_values', 'keep_default_na', 'na_filter', 'verbose', 'skip_blank_lines', 'parse_dates', 'infer_datetime_format', 'keep_date_col', 'dayfirst', 'cache_dates', 'thousands', 'decimal', 'lineterminator', 'escapechar', 'comment', 'encoding', 'dialect', 'delim_whitespace', 'low_memory', 'memory_map']
-
-# i'm sorry this is a huge fucking mess
-    global opvar_var
-    opvar_var = tk.StringVar(root)
-    opvar_var.set(read_data_options[0])
-    tk.OptionMenu(root,opvar_var,*read_data_options).grid(column=1,row=2)
-    global opvars_rowcount
-    opvars_rowcount = 3
-    tk.Button(root, text='Add Option',command=opvars).grid(column=2,row=2)
-    global opvars_complete
-    opvars_complete = []
+#     read_data_options = ['sep', 'delimiter', 'header', 'names', 'index_col', 'usecols', 'squeeze', 'prefix', 'mangle_dupe_cols', 'dtype', 'engine', 'converters', 'true_values', 'false_values', 'skipinitialspace', 'skiprows', 'skipfooter', 'nrows', 'na_values', 'keep_default_na', 'na_filter', 'verbose', 'skip_blank_lines', 'parse_dates', 'infer_datetime_format', 'keep_date_col', 'dayfirst', 'cache_dates', 'thousands', 'decimal', 'lineterminator', 'escapechar', 'comment', 'encoding', 'dialect', 'delim_whitespace', 'low_memory', 'memory_map']
+#
+# # i'm sorry this is a huge fucking mess
+#     global opvar_var
+#     opvar_var = tk.StringVar(root)
+#     opvar_var.set(read_data_options[0])
+#     tk.OptionMenu(root,opvar_var,*read_data_options).grid(column=1,row=2)
+#     global opvars_rowcount
+#     opvars_rowcount = 3
+#     tk.Button(root, text='Add Option',command=opvars).grid(column=2,row=2)
+#     global opvars_complete
+#     opvars_complete = []
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -162,41 +162,41 @@ def main():
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    tk.Label(root, text='Cross Validate').grid(column=4,row=14)
-
-    model_cross_validate_cv = entry_int('CV',4,15,5)
-
-    model_cross_validate_n_jobs = entry_str('N Jobs',4,16)
-
-    model_cross_validate_verbose = entry_int('Verbose',4,17,0)
-
-    tk.Label(root,text='Hyperparameter Search').grid(column=4,row=18)
-
-    model_hyperparameter_search_method_list = ['grid_search','random_search']
-    model_hyperparameter_search_method = optionmenu('Method',4,19,model_hyperparameter_search_method_list)
-
-    tk.Label(root, text='Parameter Grid').grid(column=4,row=20)
-    global param_grid_no_cols
-    param_grid_no_cols = entry_int('Number of Columns',4,21,2)
-    global param_rowcount
-    global param_complete
-    param_complete = []
-    param_rowcount = 22
-    tk.Button(root, text='Add Grid Row',command=param_grid_add_row).grid(column=6,row=21)
-
-    # model_hyperparameter_search_arguments = entry_str('Arguments (Seperate by comma)',6,0)
-
-    model_hyperparameter_search_arguments_cv = entry_int('CV',6,1,5)
-
-    model_hyperparameter_search_arguments_refit = checkbox_bool('Refit',6,2)
-
-    model_hyperparameter_search_arguments_return_train_score = checkbox_bool('Return Train Score',6,3)
-
-    model_hyperparameter_search_arguments_verbose = entry_int('Verbose',6,4,0)
-
-    target = entry_str('Target (Seperate by comma)',6,5)
-
-    tk.Button(root, text='Save and Close',command=close_window).grid(column=7,row=6)
+    # tk.Label(root, text='Cross Validate').grid(column=4,row=14)
+    #
+    # model_cross_validate_cv = entry_int('CV',4,15,5)
+    #
+    # model_cross_validate_n_jobs = entry_str('N Jobs',4,16)
+    #
+    # model_cross_validate_verbose = entry_int('Verbose',4,17,0)
+    #
+    # tk.Label(root,text='Hyperparameter Search').grid(column=4,row=18)
+    #
+    # model_hyperparameter_search_method_list = ['grid_search','random_search']
+    # model_hyperparameter_search_method = optionmenu('Method',4,19,model_hyperparameter_search_method_list)
+    #
+    # tk.Label(root, text='Parameter Grid').grid(column=4,row=20)
+    # global param_grid_no_cols
+    # param_grid_no_cols = entry_int('Number of Columns',4,21,2)
+    # global param_rowcount
+    # global param_complete
+    # param_complete = []
+    # param_rowcount = 22
+    # tk.Button(root, text='Add Grid Row',command=param_grid_add_row).grid(column=6,row=21)
+    #
+    # # model_hyperparameter_search_arguments = entry_str('Arguments (Seperate by comma)',6,0)
+    #
+    # model_hyperparameter_search_arguments_cv = entry_int('CV',6,1,5)
+    #
+    # model_hyperparameter_search_arguments_refit = checkbox_bool('Refit',6,2)
+    #
+    # model_hyperparameter_search_arguments_return_train_score = checkbox_bool('Return Train Score',6,3)
+    #
+    # model_hyperparameter_search_arguments_verbose = entry_int('Verbose',6,4,0)
+    #
+    target = entry_str('Target (Seperate by comma)',4,14)
+    #
+    tk.Button(root, text='Save and Close',command=close_window).grid(column=4,row=15)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     total_rows = 25
@@ -209,24 +209,24 @@ def main():
 
     root.mainloop()
 
-    opvars_dict = {}
-    for x in opvars_complete:
-        opvars_dict[x[0]] = x[1].get()
-
-    parameter_grid_dict = {}
-    param_num = 1
-    for x in param_complete:
-        param_getter_list = []
-        for i in x:
-            param_getter_list.append(i.get())
-        param_num_str = 'param%d'%param_num
-        parameter_grid_dict[param_num_str] = param_getter_list
-        param_num+=1
+    # opvars_dict = {}
+    # for x in opvars_complete:
+    #     opvars_dict[x[0]] = x[1].get()
+    #
+    # parameter_grid_dict = {}
+    # param_num = 1
+    # for x in param_complete:
+    #     param_getter_list = []
+    #     for i in x:
+    #         param_getter_list.append(i.get())
+    #     param_num_str = 'param%d'%param_num
+    #     parameter_grid_dict[param_num_str] = param_getter_list
+    #     param_num+=1
 
     yaml_dict = {
         'dataset':{
             'type':filetype,
-            'read_data_options':opvars_dict,
+            'read_data_options':None,
             'split': {
                 'test_size':split_test_size.get(),
                 'shuffle':split_shuffle.get(),
@@ -249,18 +249,18 @@ def main():
             'arguments':model_arguments.get().split(','),
             'use_cv_estimator':model_use_cv_estimator.get(),
             'cross_validate': {
-                'cv':model_cross_validate_cv.get(),
-                'n_jobs':model_cross_validate_n_jobs.get(),
-                'verbose':model_cross_validate_verbose.get()
+                'cv':None,
+                'n_jobs':None,
+                'verbose':None
             },
             'hyperparameter_search': {
-                'method':model_hyperparameter_search_method.get(),
-                'parameter_grid':parameter_grid_dict,
+                'method':None,
+                'parameter_grid':None,
                 'arguments':{
-                    'cv':model_hyperparameter_search_arguments_cv.get(),
-                    'refit':model_hyperparameter_search_arguments_refit.get(),
-                    'return_train_score':model_hyperparameter_search_arguments_return_train_score.get(),
-                    'verbose':model_hyperparameter_search_arguments_verbose.get()
+                    'cv':None,
+                    'refit':None,
+                    'return_train_score':None,
+                    'verbose':None
                 }
             }
 
